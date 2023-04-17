@@ -21,7 +21,7 @@ We considered stochastic process descriptions written in PEPA (https://www.dcs.e
 Please refer to the PRISM website (https://www.prismmodelchecker.org/) for instructions on building your model, model-checking and making changes to settings. Here are a few for your reference:
 1. Command line option to build model (a)human readable file (b)machine readable file.
 	<./prism ats<file-name>.prism <property-file>.props>
-	<./prism -importtrans ats<file-name>.tra -importstates ats<file-name>.sta -importlabels ats<file-name>.lab -dtmc <property-file>.props>
+	<./prism -importtrans ats<file-name>.tra -importstates ats<file-name>.sta -importlabels ats<file-name>.lab -ctmc <property-file>.props>
 	
 2. In case you face parsing issues, one possible fix is: 
 	<./prism ats<file-name>.prism <property-file>.props -javastack <memory>>
