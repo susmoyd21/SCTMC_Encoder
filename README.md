@@ -29,6 +29,11 @@ Please refer to the PRISM website (https://www.prismmodelchecker.org/) for instr
 3. In cases that the probabilities do NOT converge, you can increase the maximum iterations for it to converge by suffixing the query with '-maxiter 100000' 
    where 100000 can be replaced with any number. This number is 10000 in default for PRISM.
 	
-  
+4. If the probabilities still do not converge, you may need to change the numerical method used or increase the relative error threshold. They can be done in the GUI      under the 'Options' section or through command-line as well details of which can be found at: https://www.prismmodelchecker.org/manual/ConfiguringPRISM/SolutionMethodsAndOptions
+	
+Please write to:
+************************* <susmoy18@iiserb.ac.in>  *********************** 
+in case of clarifications, bug reports or issues faced. 
+P.S. I am new to Github.
   
   
