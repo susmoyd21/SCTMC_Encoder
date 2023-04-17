@@ -20,11 +20,11 @@ We considered stochastic process descriptions written in PEPA (https://www.dcs.e
  
 Please refer to the PRISM website (https://www.prismmodelchecker.org/) for instructions on building your model, model-checking and making changes to settings. Here are a few for your reference:
 1. Command line option to build model (a)human readable file (b)machine readable file.
-	./prism ats<file-name>.prism <property-file>.props
-	./prism -importtrans ats<file-name>.tra -importstates ats<file-name>.sta -importlabels ats<file-name>.lab -dtmc <property-file>.props
+	<./prism ats<file-name>.prism <property-file>.props>
+	<./prism -importtrans ats<file-name>.tra -importstates ats<file-name>.sta -importlabels ats<file-name>.lab -dtmc <property-file>.props>
 	
 2. In case you face parsing issues, one possible fix is: 
-	./prism ats<file-name>.prism <property-file>.props -javastack <memory>
+	<./prism ats<file-name>.prism <property-file>.props -javastack <memory>>
 
 3. In cases that the probabilities do NOT converge, you can increase the maximum iterations for it to converge by suffixing the query with '-maxiter 100000' 
    where 100000 can be replaced with any number. This number is 10000 in default for PRISM.
