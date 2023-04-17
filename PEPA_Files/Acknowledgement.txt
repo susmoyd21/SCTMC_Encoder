@@ -1,0 +1,1 @@
+All the PEPA model specifications are taken from 'https://www.dcs.ed.ac.uk/pepa/examples/' with minor modifications made.

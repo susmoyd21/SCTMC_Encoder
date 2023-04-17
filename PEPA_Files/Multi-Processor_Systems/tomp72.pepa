@@ -1,0 +1,51 @@
+lambda1=1.5;
+lambda2=1.3;
+lambda3=1.8;
+
+mu1=1.0;
+mu2=1.2;
+mu3=0.9;
+
+g=0.8;
+r=0.03;
+
+P1 = (think, lambda1).P1a;
+P1a = (get1, g).P1b;
+P1b = (use, mu1).P1c;
+P1c = (rel, r).P1;
+
+
+P2 = (think, lambda2).P2a;
+P2a = (get2, g).P2b;
+P2b = (use, mu2).P2c;
+P2c = (rel, r).P2;
+
+
+P3 = (think, lambda3).P3a;
+P3a = (get3, g).P3b;
+P3b = (use, mu3).P3c;
+P3c = (rel, r).P3;
+
+
+Mem1 = (get2, infty).Mem12a + (get3, infty).Mem13a;
+Mem12a = (use, infty).Mem12b;
+Mem12b = (rel, infty).Mem2 ;
+Mem13a = (use, infty).Mem13b;
+Mem13b = (rel, infty).Mem3;
+
+
+Mem2 = (get1, infty).Mem21a + (get3, infty).Mem23a;
+Mem21a = (use, infty).Mem21b;
+Mem21b = (rel, infty).Mem1 ;
+Mem23a = (use, infty).Mem23b;
+Mem23b = (rel, infty).Mem3;
+
+
+Mem3 = (get1, infty).Mem31a + (get2, infty).Mem32a;
+Mem31a = (use, infty).Mem31b;
+Mem31b = (rel, infty).Mem1 ;
+Mem32a = (use, infty).Mem32b;
+Mem32b = (rel, infty).Mem2;
+
+
+((P1 <> P2 <> P3) <get1, get2, get3, use, rel> Mem1)
