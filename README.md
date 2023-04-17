@@ -2,7 +2,7 @@
 Automatically converts ACTMC specifications of PEPA to PRISM compatible SCTMC files using model embeddings
 
 
-	We considered stochastic process descriptions written in PEPA (https://www.dcs.ed.ac.uk/pepa/), a popular tool for modeling stochastic systems, for our case studies. PEPA allows the generation of the state space for the corresponding process description which we inferred as an ACTMC by inferring the generated state space as well as the process description. Our current prototypical implementation converts PEPA process specifications of ACTMCs to SCTMCs.
+We considered stochastic process descriptions written in PEPA (https://www.dcs.ed.ac.uk/pepa/), a popular tool for modeling stochastic systems, for our case studies. PEPA allows the generation of the state space for the corresponding process description which we inferred as an ACTMC by inferring the generated state space as well as the process description. Our current prototypical implementation converts PEPA process specifications of ACTMCs to SCTMCs.
   
   It relies on two assumptions whilst defining the ACTMC in the PEPA language. The first assumption is all processes of the form, say \verb|P1=(a,r).(b,s).P2| are re-written as P1=(a,r).P' and P'=(b,s).P2, i.e., the (a,r).P operator is not used in sequence. The other assumption is a process P cannot evolve as P' via two different actions. This can be taken care of by making multiple copies of $P'$ each of which is reached via each action for such scenarios. 
   
@@ -17,6 +17,18 @@ Automatically converts ACTMC specifications of PEPA to PRISM compatible SCTMC fi
   3. Write your specification to be verified in ACSL and convert to CSL using our logical embeddings. Use PRISM GUI or command-line to build and model-check the properties. 
   
   For the case studies discussed in our paper, we have saved all the PEPA files under the subdirectory 'PEPA_Files' and the generated files for PRISM are in the subdirectory 'PRISM_files' for each case-study respectively. The ACSL properties discussed in the paper are embedded and the corresponding CSL properties are saved with the '.props' extension in  the subdirectory 'PRISM_files' under each case study as well.
+ 
+Please refer to the PRISM website (https://www.prismmodelchecker.org/) for instructions on building your model, model-checking and making changes to settings. Here are a few for your reference:
+1. Command line option to build model (a)human readable file (b)machine readable file.
+	./prism ats<file-name>.prism <property-file>.props
+	./prism -importtrans ats<file-name>.tra -importstates ats<file-name>.sta -importlabels ats<file-name>.lab -dtmc <property-file>.props
+	
+2. In case you face parsing issues, one possible fix is: 
+	./prism ats<file-name>.prism <property-file>.props -javastack <memory>
+
+3. In cases that the probabilities do NOT converge, you can increase the maximum iterations for it to converge by suffixing the query with '-maxiter 100000' 
+   where 100000 can be replaced with any number. This number is 10000 in default for PRISM.
+	
   
   
   
