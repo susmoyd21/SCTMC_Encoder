@@ -16,20 +16,45 @@ We considered stochastic process descriptions written in PEPA (https://www.dcs.e
   
   3. Write your specification to be verified in ACSL and convert to CSL using our logical embeddings. Use PRISM GUI or command-line to build and model-check the properties. 
   
-  For the case studies discussed in our paper, we have saved all the PEPA files under the subdirectory 'PEPA_Files' and the generated files for PRISM are in the subdirectory 'PRISM_files' for each case-study respectively. The ACSL properties discussed in the paper are embedded and the corresponding CSL properties are saved with the '.props' extension in  the subdirectory 'PRISM_files' under each case study as well.
- 
-Please refer to the PRISM website (https://www.prismmodelchecker.org/) for instructions on building your model, model-checking and making changes to settings. Here are a few for your reference:
-1. Command line option to build model (a)human readable file (b)machine readable file.
-	<./prism ats<file-name>.prism <property-file>.props>
-	<./prism -importtrans ats<file-name>.tra -importstates ats<file-name>.sta -importlabels ats<file-name>.lab -ctmc <property-file>.props>
-	
-2. In case you face parsing issues, one possible fix is: 
-	<./prism ats<file-name>.prism <property-file>.props -javastack <memory>>
+  For the case studies discussed in our paper, we have saved all the PEPA files under the subdirectory 'PEPA_Files' and the generated files for PRISM are
+ in the subdirectory 'PRISM_files' for each case-study respectively. The ACSL properties discussed in the paper are embedded and the corresponding CSL
+ properties are saved with the '.props' extension in the subdirectory 'PRISM_files' under each case study as well.
 
-3. In cases that the probabilities do NOT converge, you can increase the maximum iterations for it to converge by suffixing the query with '-maxiter 100000' 
-   where 100000 can be replaced with any number. This number is 10000 in default for PRISM.
-	
-4. If the probabilities still do not converge, you may need to change the numerical method used or increase the relative error threshold. They can be done in the GUI      under the 'Options' section or through command-line as well details of which can be found at: https://www.prismmodelchecker.org/manual/ConfiguringPRISM/SolutionMethodsAndOptions
+For Running the Code:
+
+1. For each case study, move to the corresponding subdirectory ('PEPA_Files') and copy the three files: .pepa, .statespace and .generator from the
+   subdirectory to the main directory 'SCTMC_Encoder-main' which contains the scripts. Note that , all the three files will have the same names.
+
+2. Next in the first group of Jupyter notebook, enter the name of the filename in the variable filename without any extension and then give your choice
+   theta in the subsequent line in the variable theta which is by default chosen 99999. Note that, theta must not exceed the limits of PRISM.
+
+3. Next, run all the cells. At the end, four files will be generated, three machine readable files (.sta,.tra,.lab) and one human readable file (.prism)
+   with names 'ats<filename>' in the directory 'SCTMC_Encoder-main'.
+
+4. Copy the output files to the subdirectory '/Home/prism/4.6-linux64/bin'.
+
+For Running the Output Model in PRISM:
+
+Please refer to the PRISM website (https://www.prismmodelchecker.org/) for instructions on building your model, model-checking and making changes to settings. 
+Here are a few for your reference:
+
+Command line option to build model: 
+(a)human readable file <./prism ats<filename>.prism .props>
+(b)machine readable file.  <./prism -importtrans ats.tra -importstates ats<filename>.sta -importlabels ats.lab -ctmc .props>
+
+In case you face parsing issues, one possible fix is to increase the java stack size: <./prism ats<filename>.prism .props -javastack 1g>
+
+In cases that the probabilities do NOT converge, you can increase the maximum iterations for it to converge by suffixing the query with:
+ '-maxiter 100000' where 100000 can be replaced with any number. This number is 10000 in default for PRISM.
+
+If the probabilities still do not converge, you may need to change the numerical method used or increase the relative error threshold. 
+They can be done in the GUI under the 'Options' section or through command-line as well details of which can be found at: 
+https://www.prismmodelchecker.org/manual/ConfiguringPRISM/SolutionMethodsAndOptions
+
+All snippets above assumes that the model and the property are in the same directory (Step 4 was followed), i.e., the prism bin and the output result is
+ also saved at the same directory. If that is not the case, this can be alternately done as follows:
+
+./prism ~/path-to-directory/Court_room.prism ~/path-to-directory/property.props
 	
 Please write to:
 ************************* <susmoy18@iiserb.ac.in>  *********************** 
