@@ -31,8 +31,6 @@ For Running the Code:
 3. Next, run all the cells. At the end, four files will be generated, three machine readable files (.sta,.tra,.lab) and one human readable file (.prism)
    with names 'ats<filename>' in the directory 'SCTMC_Encoder-main'.
 
-4. Copy the output files to the subdirectory '/Home/prism/4.6-linux64/bin'.
-
 For Running the Output Model in PRISM:
 
 Please refer to the PRISM website (https://www.prismmodelchecker.org/) for instructions on building your model, model-checking and making changes to settings. 
@@ -51,7 +49,7 @@ If the probabilities still do not converge, you may need to change the numerical
 They can be done in the GUI under the 'Options' section or through command-line as well details of which can be found at: 
 https://www.prismmodelchecker.org/manual/ConfiguringPRISM/SolutionMethodsAndOptions
 
-All snippets above assumes that the model and the property are in the same directory (Step 4 was followed), i.e., the prism bin and the output result is
+All snippets above assumes that the model and the property are in the same directory, i.e., the prism bin and the output result is
  also saved at the same directory. If that is not the case, this can be alternately done as follows:
 
 ./prism ~/path-to-directory/Court_room.prism ~/path-to-directory/property.props
