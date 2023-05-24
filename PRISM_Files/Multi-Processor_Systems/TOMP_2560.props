@@ -1,0 +1,14 @@
+const double t = 150;
+
+P=? [ true U ("get1") ]
+
+P=? [ true U ("get2") ]
+
+filter(forall, P>0 [ X ("get1"&P>=1 [ X (("bot")&P>=1 [ (("bot")|!("get1")) U ("get2") ]) ]) ], "bot"&P>0 [ X ("get1") ])
+
+filter(forall, P>0 [ X ("get2"&P>=1 [ X (("bot")&P>=1 [ (("bot")|!("get2")) U ("get1") ]) ]) ], "bot"&P>0 [ X ("get2") ])
+
+P=? [ true U<t ("get1") ]
+
+P=? [ true U<t ("get2") ]
+

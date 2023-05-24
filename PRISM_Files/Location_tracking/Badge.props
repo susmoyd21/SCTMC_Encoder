@@ -1,0 +1,38 @@
+const double t = 2;
+
+filter(avg, P=? [ true U<t ("reg14") ], "move14")
+
+filter(avg, P=? [ true U<t ("reg15") ], "move15")
+
+filter(avg, P=? [ true U<t ("reg16") ], "move16")
+
+filter(avg, P=? [ (!("move15"|"move16")) U<t ("reg14") ], "move14")
+
+filter(avg, P=? [ (!("move14"|"move16")) U<t ("reg15") ], "move15")
+
+filter(avg, P=? [ (!("move15"|"move14")) U<t ("reg16") ], "move16")
+
+filter(avg, P=? [ true U<t ("rep14") ], "reg14")
+
+filter(avg, P=? [ true U<t ("rep15") ], "reg15")
+
+filter(avg, P=? [ true U<t ("rep16") ], "reg16")
+
+filter(avg, P=? [ (!("move15"|"move16")) U<t ("rep14") ], "reg14")
+
+filter(avg, P=? [ (!("move14"|"move16")) U<t ("rep15") ], "reg15")
+
+filter(avg, P=? [ (!("move15"|"move14")) U<t ("rep16") ], "reg16")
+
+filter(avg, P=? [ (!("reg15"|"reg16")) U<t ("rep14") ], "reg14")
+
+filter(avg, P=? [ (!("reg14"|"reg16")) U<t ("rep15") ], "reg15")
+
+filter(avg, P=? [ (!("reg15"|"reg14")) U<t ("rep16") ], "reg16")
+
+filter(avg, P=? [ (!("reg15"|"reg16"|"move15"|"move16")) U<t ("rep14") ], "reg14")
+
+filter(avg, P=? [ (!("reg14"|"reg16"|"move14"|"move16")) U<t ("rep15") ], "reg15")
+
+filter(avg, P=? [ (!("reg15"|"reg14"|"move15"|"move14")) U<t ("rep16") ], "reg16")
+
