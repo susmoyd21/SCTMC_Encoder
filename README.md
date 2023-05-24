@@ -12,7 +12,7 @@ We considered stochastic process descriptions written in PEPA (https://www.dcs.e
   
   1. Write the process specification in PEPA with the above assumptions and save it as 'Process.pepa'. Generate the statespace and generator matrix from the PEPA toolset, choose ',' as separator and tick on 'Include state number' so that state numbers are present. These two preferences are important. Preferably name the '.statespace' and '.generator' files also as 'Process.statespace' and 'Process.generator'.
   
-  2. Now, use our script, input the file-name of your process specification without the extension ('Process' for our running example), make a choice of theta, it is set default at 9999, and run through the cells to generate both human-readable and machine-readable files compatible with PRISM. You can change the value of theta in the human readable PRISM file later as well.
+  2. Now, use our script, input the file-name of your process specification without the extension ('Process' for our running example), make a choice of theta, it is set default at 1000000, and run through the cells to generate both human-readable and machine-readable files compatible with PRISM. You can change the value of theta in the human readable PRISM file later as well.
   
   3. Write your specification to be verified in ACSL and convert to CSL using our logical embeddings. Use PRISM GUI or command-line to build and model-check the properties. 
   
@@ -26,7 +26,7 @@ For Running the Code:
    subdirectory to the main directory 'SCTMC_Encoder-main' which contains the scripts. Note that , all the three files will have the same names.
 
 2. Next in the first group of Jupyter notebook, enter the name of the filename in the variable filename without any extension and then give your choice
-   theta in the subsequent line in the variable theta which is by default chosen 99999. Note that, theta must not exceed the limits of PRISM.
+   theta in the subsequent line in the variable theta which is by default chosen 1000000. Note that, theta must not exceed the limits of PRISM.
 
 3. Next, run all the cells. At the end, four files will be generated, three machine readable files (.sta,.tra,.lab) and one human readable file (.prism)
    with names 'ats<filename>' in the directory 'SCTMC_Encoder-main'.
