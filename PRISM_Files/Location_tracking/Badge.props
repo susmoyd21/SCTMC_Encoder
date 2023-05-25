@@ -1,4 +1,4 @@
-const double t = 2;
+const double t;
 
 filter(avg, P=? [ true U<t ("reg14") ], "move14")
 
