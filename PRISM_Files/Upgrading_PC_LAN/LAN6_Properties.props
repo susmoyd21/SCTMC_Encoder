@@ -1,4 +1,4 @@
-const double t = 20;
+const double t;
 
 // 1.
 filter(forall, P>0 [ X ("serve1"&P>=1 [ X ("bot"&P<=0 [ X (("walk1")|("walkon1")) ]) ]) ], P>0 [ X ("serve1") ])
